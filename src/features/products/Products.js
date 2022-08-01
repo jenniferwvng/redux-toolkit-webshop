@@ -1,15 +1,26 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import { allProducts } from "./productSlice";
-import { useSelector } from "react-redux";
+import { addToCart } from "../cart/cartSlice";
+
 
 export const Products = () => {
     const productsArray = useSelector(allProducts);
+    const dispatch = useDispatch();
 
     const renderProducts = productsArray.map(product => 
         (
         <div style={{backgroundColor: 'orange'}}>
         <p>{product.title}</p>
         <p>{product.price}</p>    
+        <button onClick={() => dispatch(addToCart({
+            product: {
+                productId: product.id, 
+                productName: product.title, 
+                productPrice: product.price
+            } 
+        }))}>Add to cart</button>
         </div>
         )
     )
