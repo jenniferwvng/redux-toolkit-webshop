@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "./cartSlice";
+import { removeFromCart, emptyCart } from "./cartSlice";
 
 import { allCartItems } from "./cartSlice";
 
@@ -20,7 +20,10 @@ export const Cart = () => {
 
     return (
         <div>
-            {renderCartItems}
+            {renderCartItems}                        
+            <div style={{backgroundColor:'red'}}>
+                <button onClick={() => dispatch(emptyCart())}>Empty cart</button>
+            </div>
         </div>
     )
 }
