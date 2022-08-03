@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, emptyCart } from "./cartSlice";
+import { removeFromCart, emptyCart, increaseCartItemAmount, decreaseCartItemAmount } from "./cartSlice";
 
 import { allCartItems } from "./cartSlice";
 
@@ -11,10 +11,13 @@ export const Cart = () => {
 
     const renderCartItems = cartArray.map(cartItem => (
         <div style={{backgroundColor: 'orange'}}>
-            <p>{cartItem.productId}</p>
+            <p>Product id: {cartItem.productId}</p>
+            <p>Product count: {cartItem.productCount}</p>
             <p>{cartItem.productName}</p>
             <p>{cartItem.productPrice}</p>
             <button onClick={() => dispatch(removeFromCart(cartItem.productId))}>Remove from cart</button>
+            <button onClick={() => dispatch(increaseCartItemAmount(cartItem.productId))}>Increase amount</button>
+            <button onClick={() => dispatch(decreaseCartItemAmount(cartItem.productId))}>Decrease amount</button>
         </div>
     ))
 

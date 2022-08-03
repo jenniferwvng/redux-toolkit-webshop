@@ -16,6 +16,7 @@ export const Products = () => {
         <p>{product.price}</p>    
         <button onClick={() => dispatch(addToCart({
             productId: product.id, 
+            productCount: 1,
             productName: product.title, 
             productPrice: product.price
         }))}>Add to cart</button>
