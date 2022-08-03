@@ -29,9 +29,15 @@ const cartSlice = createSlice({
             const cartItem = state.cartItems.find(cartItem => cartItem.productId === action.payload);
             cartItem.productCount += 1;
         },
-        decreaseCartItemAmount: (state, action) => {
+        decreaseCartItemAmount: (state, action) => {    
             const cartItem = state.cartItems.find(cartItem => cartItem.productId === action.payload);
-            cartItem.productCount -= 1;
+            
+            if (cartItem.productCount === 0) {
+                const indexToRemoveFromCartArray = state.cartItems.indexOf(cartItem);
+                state.cartItems.splice(indexToRemoveFromCartArray, 1);
+            } else {
+                cartItem.productCount -= 1;
+            }
         }
     }
 });
