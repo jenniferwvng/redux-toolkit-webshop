@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, emptyCart, increaseCartItemAmount, decreaseCartItemAmount } from "./cartSlice";
-
-import { allCartItems } from "./cartSlice";
+import { removeFromCart, emptyCart, increaseCartItemAmount, decreaseCartItemAmount, calculateCheckoutTotals } from "./cartSlice";
+import { allCartItems, cartTotalPrice } from "./cartSlice";
 
 export const Cart = () => {    
     const cartArray = useSelector(allCartItems);
+    const checkoutTotalPrice = useSelector(cartTotalPrice);
     const dispatch = useDispatch();
-    console.log(cartArray)
+
+    useEffect(() => {
+        dispatch(calculateCheckoutTotals());
+    }, [cartArray]);
 
     const renderCartItems = cartArray.map(cartItem => (
         <div style={{backgroundColor: 'orange'}}>
@@ -26,6 +29,7 @@ export const Cart = () => {
             {renderCartItems}                        
             <div style={{backgroundColor:'red'}}>
                 <button onClick={() => dispatch(emptyCart())}>Empty cart</button>
+                <p>Total: {checkoutTotalPrice} SEK</p>
             </div>
         </div>
     )
