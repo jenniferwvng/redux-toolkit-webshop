@@ -13,9 +13,10 @@ export const Cart = () => {
     }, [cartArray]);
 
     const renderCartItems = cartArray.map(cartItem => (
-        <div style={{backgroundColor: 'orange'}}>
+        <div>            
             <p>Product id: {cartItem.productId}</p>
             <p>Product count: {cartItem.productCount}</p>
+            <img src={cartItem.productImage} width={50} alt={cartItem.productName}/>
             <p>{cartItem.productName}</p>
             <p>{cartItem.productPrice}</p>
             <button onClick={() => dispatch(removeFromCart(cartItem.productId))}>Remove from cart</button>
@@ -26,6 +27,7 @@ export const Cart = () => {
 
     return (
         <div>
+            <h1>Checkout cart</h1>
             {renderCartItems}                        
             <div style={{backgroundColor:'red'}}>
                 <button onClick={() => dispatch(emptyCart())}>Empty cart</button>

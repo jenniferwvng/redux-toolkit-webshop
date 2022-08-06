@@ -33,7 +33,6 @@ const productSlice = createSlice({
             state.isLoading = true;
         },
         [getProducts.fulfilled]: (state, action) => {
-            console.log(action)
             state.isLoading = false;
             state.productList = action.payload; 
         },

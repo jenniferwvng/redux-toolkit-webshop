@@ -24,7 +24,8 @@ export const Products = () => {
             productId: product.id, 
             productCount: 1,
             productName: product.title, 
-            productPrice: product.price
+            productPrice: product.price,
+            productImage: product.image
         }))}>Add to cart</button>
         </div>
         )
