@@ -8,3 +8,4 @@ Tried optimizing the code by e.g. defining the precise state with its dot notati
 
 Also using useEffect hook to listen to changes in the dependency array, in which we listen for changes in the cart items state, for automatic updates of the displayed calculated total price.
 
+Redux doesn't deal with asynchronous logic by default, instead we have to use middleware, in this case Redux Thunk - which is in fact included by default in Redux Toolkit. More specifically, we have to use createAsyncThunk to deal with asynchronous logic, such as fetching data from an API.
