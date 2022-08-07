@@ -6,23 +6,14 @@ const fetchAPI = async () => {
     return products;
 }
 
-export const getProducts = createAsyncThunk('products/getProducts', async (thunkAPI) => {
-    // return fetch('https://dummyjson.com/products')
-    // .then((res) => res.json())
-    // .catch((err) => {
-    //     console.log(err);
-    //     return thunkAPI.RejectWithValue(err);
-    // })
-    return fetchAPI()
-    // const response = await fetch('https://dummyjson.com/products');
-    // console.log(response);
-    // const data = await response.json();
-    // return data;
+export const getProducts = createAsyncThunk('products/getProducts', async () => {
+        return fetchAPI();
 });
 
 const initialState = {
     productList: [],
-    isLoading: true
+    isLoading: true,
+    errorMessage: 'No error when fetching API'
 };
 
 const productSlice = createSlice({
@@ -36,8 +27,9 @@ const productSlice = createSlice({
             state.isLoading = false;
             state.productList = action.payload; 
         },
-        [getProducts.rejected]: state => {
+        [getProducts.rejected]: (state, action) => {
             state.isLoading = false;
+            state.errorMessage = action.error.message || 'Something went wrong';
         }
     }
 });

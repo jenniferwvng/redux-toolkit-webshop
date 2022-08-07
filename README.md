@@ -1,6 +1,8 @@
 ## Description
 This project aims to demonstrate the use of Redux Toolkit (RTK) as recommended per best practice for state management, since it among other things implements Immer for immutability (in contrast to "regular" Redux). An e-commerce site is chosen as code idea as it encompasses opportunities to use other React features such as useEffect or the commonly used mapping over data into components. 
 
+Focus is moreover on clear code folder structure + code structure.
+
 ## Notes and documentation along the way
 Concluded with named exports for slice reducers being preferred (as opposed to some examples on the web) over default export, as in this case I have several exports from the file (e.g. productSlice.js). Also, it gives you the option of naming it directly in the export, which I find simplifies readability. Not sure (yet) why default export is used in many examples.
 
