@@ -1,24 +1,37 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const fetchAPI = async () => {
-    const response = await fetch('https://fakestoreapi.com/products?limit=5');
-    const products = await response.json();
-    return products;
+const fetchAPI = async (userChosenCategory, currentCategoryState) => {
+    if (currentCategoryState === 'all') {
+        const response = await fetch('https://fakestoreapi.com/products');
+        const products = await response.json();
+        return products;
+    } else {
+        const response = await fetch(`https://fakestoreapi.com/products/category/${userChosenCategory}`);
+        const products = await response.json();
+        return products;
+    }
 }
 
-export const getProducts = createAsyncThunk('products/getProducts', async () => {
-        return fetchAPI();
+export const getProducts = createAsyncThunk('products/getProducts', async (userChosenCategory, thunkAPI) => {    
+    const getState = thunkAPI.getState().products.category;
+    return fetchAPI(userChosenCategory, getState);
 });
 
 const initialState = {
     productList: [],
     isLoading: true,
-    errorMessage: 'No error when fetching API'
+    errorMessage: 'No error when fetching API',
+    category: 'all'
 };
 
 const productSlice = createSlice({
     name: 'products',
     initialState,
+    reducers: {
+        sortByCategory: (state, action) => {
+            state.category = action.payload;
+        }
+    },
     extraReducers: {
         [getProducts.pending]: state => {
             state.isLoading = true;
@@ -34,6 +47,7 @@ const productSlice = createSlice({
     }
 });
 
+export const { sortByCategory } = productSlice.actions;
 export const productReducer = productSlice.reducer;
 
 //Define this here instead of in useSelector in Products component file:
