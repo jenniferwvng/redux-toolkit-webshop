@@ -5,7 +5,7 @@ import { Cart } from './features/cart/Cart';
 function App() {
   return (
     <div className="App">
-      <p>Webshop</p>
+      <h1>Webshop simulation</h1>
       <Products />
       <Cart />
     </div>

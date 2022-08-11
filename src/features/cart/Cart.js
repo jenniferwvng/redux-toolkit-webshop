@@ -10,7 +10,7 @@ export const Cart = () => {
 
     useEffect(() => {
         dispatch(calculateCheckoutTotals());
-    }, [cartArray]);
+    }, [dispatch, cartArray]);
 
     const renderCartItems = cartArray.map(cartItem => (
         <div>            
