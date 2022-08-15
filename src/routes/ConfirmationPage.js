@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-//import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { orderConfirmation } from "../features/cart/cartSlice";
-//import { restartOrder, emptyCart } from "../features/cart/cartSlice";
+import { restartOrder, emptyCart } from "../features/cart/cartSlice";
 import Header from "../components/Header";
 
 function ConfirmationPage () {
   const order = useSelector(orderConfirmation);
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  //add redirect timer function, when redirected to home page old order (confirmed one) will be removed from cart
-    // dispatch(restartOrder());
-    // dispatch(emptyCart());
-
+  setTimeout(() => {
+    dispatch(restartOrder());
+    dispatch(emptyCart());
+    navigate("/");
+  }, 8000);
 
   const renderOrderInfo = order.map(orderinfo => (
     <div>
@@ -32,6 +34,7 @@ function ConfirmationPage () {
       <Link to="/">
         Return to start page
       </Link>
+      <p>You will be automatically redirected after 8 seconds</p>
     </div>
   );
 }
