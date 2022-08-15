@@ -1,0 +1,92 @@
+.headerGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: lightgrey;
+}
+
+.headerGridChildren {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.cartSlideGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: grey;
+}
+
+.cartSlideGridChildren {
+    grid-column-start: 3;
+    grid-column-end: 3;
+}
+
+
+@media (min-width: 576px) {
+    .headerGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .headerGridChildren {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    
+    .cartSlideGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .cartSlideGridChildren {
+        grid-column-start: 4;
+        grid-column-end: 4;
+    }
+}
+
+@media (min-width: 768px) {
+    .headerGrid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .headerGridChildren {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    
+    .cartSlideGrid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .cartSlideGridChildren {
+        grid-column-start: 5;
+        grid-column-end: 5;
+    }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+
+}
+
+/* Cart toggle: show/hide cart */
+.cartSlide{
+    background-color: white;
+    overflow-y: scroll;
+    height: 30vh;
+    position: absolute;
+    z-index: 1;
+}
+
+
+/* .cartSlide{
+    height: 0;
+    overflow-y: scroll;
+    background: red;
+    animation: slide 1s ease 0.5s both;
+}
+
+@keyframes slide {
+  from {height: 0;}
+  to {height: 30vh;}
+} */
+

@@ -32,7 +32,10 @@ export const Cart = () => {
             <div style={{backgroundColor:'red'}}>
                 <button onClick={() => dispatch(emptyCart())}>Empty cart</button>
                 <p>Total: {checkoutTotalPrice} SEK</p>
+                <button style={{backgroundColor: 'green', border: 'none'}}>Go to checkout</button>
             </div>
+            {/* react router to another component page (checkout component: create) onclick go to checkout btn, where user fill in info in form and when accept, proceed to redirect to another component (confirmation component, create) (also need form validation applied to button before accepting onclick)*/}
+            {/* check react navigation, might omit need to user router since only small part of app using this? */}
         </div>
     )
 }

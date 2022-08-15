@@ -1,13 +1,12 @@
 import './App.css';
 import { Products } from './features/products/Products';
-import { Cart } from './features/cart/Cart';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
-      <h1>Webshop simulation</h1>
+      <Header />
       <Products />
-      <Cart />
     </div>
   );
 }
