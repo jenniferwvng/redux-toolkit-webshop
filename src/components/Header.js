@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Cart } from "../features/cart/Cart";
+import { Link } from "react-router-dom";
 
+import { Cart } from "../features/cart/Cart";
 import styles from '../styles/Header.module.css'
 
 function Header () {
@@ -15,7 +16,9 @@ function Header () {
     <div>
     <header className={styles.headerGrid}>
       <div className={styles.headerGridChildren}>
-        <h1>Webshop simulation</h1>
+          <Link to="/" style={{textDecoration: 'none', color: 'black'}}>
+            <h1>Webshop simulation</h1>
+          </Link>
       </div>  
       <div>
       <button onClick={handleCartToggle} >

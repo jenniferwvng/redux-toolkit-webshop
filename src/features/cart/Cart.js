@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
 import { removeFromCart, emptyCart, increaseCartItemAmount, decreaseCartItemAmount, calculateCheckoutTotals } from "./cartSlice";
 import { allCartItems, cartTotalPrice } from "./cartSlice";
 
@@ -31,11 +33,11 @@ export const Cart = () => {
             {renderCartItems}                        
             <div style={{backgroundColor:'red'}}>
                 <button onClick={() => dispatch(emptyCart())}>Empty cart</button>
-                <p>Total: {checkoutTotalPrice} SEK</p>
-                <button style={{backgroundColor: 'green', border: 'none'}}>Go to checkout</button>
+                <p>Total: {checkoutTotalPrice} SEK</p>                
+                <Link to="/checkout">
+                    <button style={{backgroundColor: 'green', border: 'none'}}>Go to checkout</button>
+                </Link>
             </div>
-            {/* react router to another component page (checkout component: create) onclick go to checkout btn, where user fill in info in form and when accept, proceed to redirect to another component (confirmation component, create) (also need form validation applied to button before accepting onclick)*/}
-            {/* check react navigation, might omit need to user router since only small part of app using this? */}
         </div>
     )
 }
