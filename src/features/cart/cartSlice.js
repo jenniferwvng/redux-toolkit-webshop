@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     cartItems: [],
     quantity: 0,
-    totalPrice: 0
+    totalPrice: 0,
+    orderConfirmation: []
 };
 
 const cartSlice = createSlice({
@@ -52,6 +53,9 @@ const cartSlice = createSlice({
 
             state.quantity = quantity;
             state.totalPrice = totalPrice;    
+        },
+        confirmOrderInformation: (state, action) => {
+            state.orderConfirmation.push(action.payload);
         }
     }
 });
@@ -62,7 +66,8 @@ export const {
     emptyCart, 
     increaseCartItemAmount, 
     decreaseCartItemAmount, 
-    calculateCheckoutTotals 
+    calculateCheckoutTotals,
+    confirmOrderInformation 
 } = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;
