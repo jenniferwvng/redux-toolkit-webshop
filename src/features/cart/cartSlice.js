@@ -56,6 +56,9 @@ const cartSlice = createSlice({
         },
         confirmOrderInformation: (state, action) => {
             state.orderConfirmation.push(action.payload);
+        },
+        restartOrder: state => {
+            state.orderConfirmation = [];
         }
     }
 });
@@ -67,10 +70,12 @@ export const {
     increaseCartItemAmount, 
     decreaseCartItemAmount, 
     calculateCheckoutTotals,
-    confirmOrderInformation 
+    confirmOrderInformation,
+    restartOrder 
 } = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;
 
 export const allCartItems = state => state.cart.cartItems;
 export const cartTotalPrice = state => state.cart.totalPrice;
+export const orderConfirmation = state => state.cart.orderConfirmation;

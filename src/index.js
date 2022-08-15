@@ -12,6 +12,7 @@ import CheckoutPage from './routes/CheckoutPage';
 import ErrorPage from './routes/ErrorPage';
 import './index.css';
 import App from './App';
+import ConfirmationPage from './routes/ConfirmationPage';
 
 
 
@@ -23,6 +24,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App />}/>
           <Route path="checkout" element={<CheckoutPage />} />
+          <Route path="confirmation" element={<ConfirmationPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

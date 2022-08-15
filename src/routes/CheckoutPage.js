@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { confirmOrderInformation } from "../features/cart/cartSlice";
+import { useNavigate } from "react-router-dom";
 
+import { confirmOrderInformation } from "../features/cart/cartSlice";
 import Header from "../components/Header";
 
 function CheckoutPage() {
@@ -13,6 +14,7 @@ function CheckoutPage() {
   const [payment, setPayment] = useState('');
 
   const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +25,8 @@ function CheckoutPage() {
       email,
       telephone,
       payment
-    }))
+    }));
+    navigate("/confirmation");
   }
 
   return (
