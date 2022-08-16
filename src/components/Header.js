@@ -21,8 +21,8 @@ function Header () {
           </Link>
       </div>  
       <div>
-      <button onClick={handleCartToggle} onMouseEnter={handleCartToggle}>
-        {toggleState ? <p>close</p> : <p>open</p>}
+      <button onClick={handleCartToggle} onMouseEnter={handleCartToggle} style={{border: 'none', background: 'white', borderRadius: '10px'}}>
+        <img src="/carticon.png" alt="cart-icon" width={45} />
       </button>
     </div>
     </header>
