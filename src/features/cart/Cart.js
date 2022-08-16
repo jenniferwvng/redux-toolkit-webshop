@@ -16,15 +16,25 @@ export const Cart = () => {
     }, [dispatch, cartArray]);
 
     const renderCartItems = cartArray.map(cartItem => (
-        <div style={{backgroundColor: 'white', padding: '10px'}}>            
-            <p>Product id: {cartItem.productId}</p>
-            <p>Quantity: {cartItem.productCount}</p>
-            <img src={cartItem.productImage} width={50} alt={cartItem.productName}/>
-            <p>{cartItem.productName}</p>
-            <p>{cartItem.productPrice}</p>            
-            <button onClick={() => dispatch(removeFromCart(cartItem.productId))}>Remove from cart</button>
-            <button onClick={() => dispatch(increaseCartItemAmount(cartItem.productId))}>Increase amount</button>
-            <button onClick={() => dispatch(decreaseCartItemAmount(cartItem.productId))}>Decrease amount</button>
+        <div style={{backgroundColor: 'white', padding: '10px', display: 'flex', justifyContent: 'center'}}>            
+            <span>
+                <img src={cartItem.productImage} width={50} alt={cartItem.productName}/>
+                <p>{cartItem.productName}</p>
+                <p style={{fontWeight: 'bold'}}>{cartItem.productPrice}</p>            
+            </span>
+
+            <span className={styles.cartIconFlex}>
+                <button onClick={() => dispatch(increaseCartItemAmount(cartItem.productId))}>
+                    <img src="/arrowup.png" alt="increase-quantity" width={20} />
+                </button>
+                <p>{cartItem.productCount}</p>
+                <button onClick={() => dispatch(decreaseCartItemAmount(cartItem.productId))}>
+                    <img src="/arrowdown.png" alt="decrease-quantity" width={20} />
+                </button>
+                <button onClick={() => dispatch(removeFromCart(cartItem.productId))}>
+                    <img src="/deleteicon.png" alt="decrease-quantity" width={15} />
+                </button>
+            </span>
         </div>
     ))
 
@@ -33,7 +43,7 @@ export const Cart = () => {
             <h1>Checkout cart</h1>
             {renderCartItems}                        
             <div style={{padding: '20px'}}>
-                <button onClick={() => dispatch(emptyCart())}>Empty cart</button>
+                <button onClick={() => dispatch(emptyCart())} className={styles.emptyCartIcon}>Empty cart</button>
                 <p>Total: {checkoutTotalPrice} SEK</p>                
                 <Link to="/checkout">
                     <button className={styles.checkoutBtnLink}>Go to checkout</button>

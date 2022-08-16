@@ -45,7 +45,6 @@ function CheckoutPage() {
           <input type="submit" value="Place order" />
         </form>
       </main>
-      <p>Checkout page</p>
     </div>
   );
 }

@@ -7,3 +7,27 @@
     padding: 10px;
     border-radius: 3px;
 }
+
+.cartIconFlex {
+    display: flex;
+    flex-direction: column;
+}
+
+.cartIconFlex > button {
+    border: none;
+    background-color: transparent;
+}
+
+.cartIconFlex > button:last-child {
+    margin: 30px;
+}
+
+.emptyCartIcon {
+    background-color: red;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 2px;
+    text-transform: uppercase;
+    padding: 8px;
+}
