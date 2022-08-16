@@ -1,0 +1,9 @@
+.checkoutBtnLink {
+    background-color: green;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 3px;
+}

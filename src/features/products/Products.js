@@ -47,8 +47,7 @@ export const Products = () => {
 
     return (
         <div>
-            <p>Sort by:</p>
-            <select value={value} onChange={handleCategoryChange}>
+            <select value={value} onChange={handleCategoryChange} className={styles.categorySelectDropdown}>
                 <option value="all">All</option>
                 <option value="jewelery">jewelery</option>
                 <option value="men's clothing">men's clothing</option>

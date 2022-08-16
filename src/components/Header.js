@@ -16,15 +16,13 @@ function Header () {
     <div>
     <header className={styles.headerGrid}>
       <div className={styles.headerGridChildren}>
-          <Link to="/" style={{textDecoration: 'none', color: 'black'}}>
+          <Link to="/" className={styles.headerTitleLink}>
             <h1>Webshop simulation</h1>
           </Link>
       </div>  
-      <div>
-      <button onClick={handleCartToggle} onMouseEnter={handleCartToggle} style={{border: 'none', background: 'white', borderRadius: '10px'}}>
+      <button onClick={handleCartToggle} onMouseEnter={handleCartToggle} className={styles.cartButtonIcon}>
         <img src="/carticon.png" alt="cart-icon" width={45} />
       </button>
-    </div>
     </header>
 
     <article className={styles.cartSlideGrid}>

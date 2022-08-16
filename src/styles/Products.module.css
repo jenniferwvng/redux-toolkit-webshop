@@ -62,3 +62,10 @@
     font-weight: bold;
 }
 
+.categorySelectDropdown {
+    border: 2px solid grey;
+    border-radius: 8px;
+    margin: 10px;
+    color: grey;
+    font-weight: bold;
+}

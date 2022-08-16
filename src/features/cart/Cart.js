@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { removeFromCart, emptyCart, increaseCartItemAmount, decreaseCartItemAmount, calculateCheckoutTotals } from "./cartSlice";
 import { allCartItems, cartTotalPrice } from "./cartSlice";
+import styles from '../../styles/Cart.module.css'
 
 export const Cart = () => {    
     const cartArray = useSelector(allCartItems);
@@ -35,7 +36,7 @@ export const Cart = () => {
                 <button onClick={() => dispatch(emptyCart())}>Empty cart</button>
                 <p>Total: {checkoutTotalPrice} SEK</p>                
                 <Link to="/checkout">
-                    <button style={{backgroundColor: 'green', border: 'none', color: 'white', textTransform: 'uppercase', fontWeight: 'bold', padding: '10px', borderRadius: '3px'}}>Go to checkout</button>
+                    <button className={styles.checkoutBtnLink}>Go to checkout</button>
                 </Link>
             </div>
         </div>
