@@ -1,5 +1,5 @@
 ## Description
-This project aims to demonstrate the use of Redux Toolkit (RTK) as recommended per best practice for state management, since it among other things implements Immer for immutability (in contrast to "regular" Redux). An e-commerce site is chosen as code idea as it encompasses opportunities to use other React features such as useEffect or the commonly used mapping over data into components. 
+This project aims to demonstrate the use of Redux Toolkit (RTK) as recommended per best practice for state management, since it among other things implements Immer for immutability (in contrast to "regular" Redux). An e-commerce site is chosen as code idea as it encompasses opportunities to use other React features such as useEffect, React Router or simply the commonly used mapping over data into components. 
 
 Focus is moreover on clear code folder structure + code structure.
 

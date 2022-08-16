@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { confirmOrderInformation } from "../features/cart/cartSlice";
+import styles from '../styles/Checkout.module.css'
 import Header from "../components/Header";
 
 function CheckoutPage() {
@@ -33,31 +34,13 @@ function CheckoutPage() {
     <div>
       <Header />
       <main>
-        <form onSubmit={handleSubmit}>
-          <label>
-            First name:
-            <input type="firstname" value={firstname} onChange={(e) => setFirstname(e.target.value)}/>
-          </label>
-          <label>
-            Last name:
-            <input type="lastname" value={lastname} onChange={(e) => setLastname(e.target.value)}/>
-          </label>
-          <label>
-            Address:
-            <input type="address" value={address} onChange={(e) => setAddress(e.target.value)}/>
-          </label>
-          <label>
-            Email:
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-          </label>
-          <label>
-            Telephone number:
-            <input type="telephone" value={telephone} onChange={(e) => setTelephone(e.target.value)}/>
-          </label>
-          <label>
-            Payment method:
-            <input type="payment" value={payment} onChange={(e) => setPayment(e.target.value)}/>
-          </label>
+        <form onSubmit={handleSubmit} className={styles.checkoutForm}>
+          <input type="firstname" placeholder="First name" value={firstname} onChange={(e) => setFirstname(e.target.value)}/>
+          <input type="lastname" placeholder="Last name" value={lastname} onChange={(e) => setLastname(e.target.value)}/>          
+          <input type="address" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)}/>          
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>          
+          <input type="telephone" placeholder="Telephone" value={telephone} onChange={(e) => setTelephone(e.target.value)}/>          
+          <input type="payment" placeholder="Payment" value={payment} onChange={(e) => setPayment(e.target.value)}/>          
           {/* add form validation to prevent empty or incorrect fields*/}
           <input type="submit" value="Place order" />
         </form>
