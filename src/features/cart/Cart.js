@@ -15,12 +15,12 @@ export const Cart = () => {
     }, [dispatch, cartArray]);
 
     const renderCartItems = cartArray.map(cartItem => (
-        <div>            
+        <div style={{backgroundColor: 'white', padding: '10px'}}>            
             <p>Product id: {cartItem.productId}</p>
-            <p>Product count: {cartItem.productCount}</p>
+            <p>Quantity: {cartItem.productCount}</p>
             <img src={cartItem.productImage} width={50} alt={cartItem.productName}/>
             <p>{cartItem.productName}</p>
-            <p>{cartItem.productPrice}</p>
+            <p>{cartItem.productPrice}</p>            
             <button onClick={() => dispatch(removeFromCart(cartItem.productId))}>Remove from cart</button>
             <button onClick={() => dispatch(increaseCartItemAmount(cartItem.productId))}>Increase amount</button>
             <button onClick={() => dispatch(decreaseCartItemAmount(cartItem.productId))}>Decrease amount</button>
@@ -28,14 +28,14 @@ export const Cart = () => {
     ))
 
     return (
-        <div>
+        <div style={{border: '1px solid lightgrey', backgroundColor: '#F9F7F5'}}>
             <h1>Checkout cart</h1>
             {renderCartItems}                        
-            <div style={{backgroundColor:'red'}}>
+            <div style={{padding: '20px'}}>
                 <button onClick={() => dispatch(emptyCart())}>Empty cart</button>
                 <p>Total: {checkoutTotalPrice} SEK</p>                
                 <Link to="/checkout">
-                    <button style={{backgroundColor: 'green', border: 'none'}}>Go to checkout</button>
+                    <button style={{backgroundColor: 'green', border: 'none', color: 'white', textTransform: 'uppercase', fontWeight: 'bold', padding: '10px', borderRadius: '3px'}}>Go to checkout</button>
                 </Link>
             </div>
         </div>

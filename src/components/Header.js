@@ -21,7 +21,7 @@ function Header () {
           </Link>
       </div>  
       <div>
-      <button onClick={handleCartToggle} >
+      <button onClick={handleCartToggle} onMouseEnter={handleCartToggle}>
         {toggleState ? <p>close</p> : <p>open</p>}
       </button>
     </div>
@@ -29,7 +29,7 @@ function Header () {
 
     <article className={styles.cartSlideGrid}>
         <div className={styles.cartSlideGridChildren}>
-            <div className={styles.cartSlide}>
+            <div className={styles.cartSlide} onMouseLeave={handleCartToggle}>
                 {toggleState && <Cart />}
             </div>
         </div>

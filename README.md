@@ -16,6 +16,9 @@ Error handling in the thunk does not really work as traditional JS error handlin
 
 createAsyncThunk accepts a second argument inside the payloadCreator (the callback function with async logic), commonly called thunkAPI which is an object, which you can use to access the current state (getState() method). Since state is not available outside the reducers, unless you use useSelector (which is only limited to use inside React component files) - and while I still wanted to have access to it inside the slice file for conditionally fetching the API based on user input of category choice, using the thunkAPI argument passed by createAsyncThunk enabled the option of retrieving the current category state and passing it further as an argument for use in the function handling the API fetching.
 
+#### React Router
+Used React Router for navigation and useNavigate to redirect user to confirmation page after submitting the order form, as well as clearing the cart and user state in setTimeOut. 
+
 ### Third party APIs
 Used Fakestore API for product list, all data credited for the author https://fakestoreapi.com/products
 
