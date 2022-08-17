@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { removeFromCart, emptyCart, increaseCartItemAmount, decreaseCartItemAmount, calculateCheckoutTotals } from "./cartSlice";
+import { 
+    removeFromCart, 
+    emptyCart, 
+    increaseCartItemAmount, 
+    decreaseCartItemAmount, 
+    calculateCheckoutTotals
+} from "./cartSlice";
 import { allCartItems, cartTotalPrice } from "./cartSlice";
 import styles from '../../styles/Cart.module.css'
 

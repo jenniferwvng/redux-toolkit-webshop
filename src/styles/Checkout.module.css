@@ -12,6 +12,29 @@
     height: 32px;
 }
 
+.checkoutCartGrid {
+    background-color: white;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.checkoutCartGrid > div {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.cartContentDivideGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+    align-items: center;
+}
+
+.cartContentDivideGrid > span:last-child {
+    justify-self: end;
+}
+
 
 @media (min-width: 576px) {
     .checkoutForm {

@@ -72,7 +72,7 @@
 .cartSlide{
     background-color: white;
     overflow-y: scroll;
-    height: 30vh;
+    height: 40vh;
     position: absolute;
     z-index: 1;
 }

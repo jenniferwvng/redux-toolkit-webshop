@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { confirmOrderInformation } from "../features/cart/cartSlice";
+import { 
+  confirmOrderInformation, 
+  allCartItems,
+  cartTotalPrice
+} from "../features/cart/cartSlice";
 import styles from '../styles/Checkout.module.css'
 import Header from "../components/Header";
 
@@ -30,10 +34,35 @@ function CheckoutPage() {
     navigate("/confirmation");
   }
 
+  const cartArray = useSelector(allCartItems);
+  const checkoutTotalPrice = useSelector(cartTotalPrice);
+
+  const renderCheckoutItems = cartArray.map(cartItem => (
+    <div className={styles.cartContentDivideGrid}>            
+        <span>
+            <img src={cartItem.productImage} width={50} alt={cartItem.productName}/>
+            <p>{cartItem.productName}</p>     
+        </span>      
+        <span>
+          <p style={{fontWeight: 'bold'}}>{cartItem.productPrice} SEK</p>       
+        </span>
+    </div>
+  ))
+
   return (
     <div>
       <Header />
       <main>
+        <h1 style={{color: 'grey', textAlign: 'center'}}>Your checkout cart</h1>
+        <article className={styles.checkoutCartGrid}>        
+          <div>          
+            {renderCheckoutItems}          
+            <p style={{ fontWeight: 'bold'}}>Total: {checkoutTotalPrice} SEK</p>     
+          </div>
+        </article>
+        <span>
+          
+        </span>
         <form onSubmit={handleSubmit} className={styles.checkoutForm}>
           <input type="firstname" placeholder="First name" value={firstname} onChange={(e) => setFirstname(e.target.value)}/>
           <input type="lastname" placeholder="Last name" value={lastname} onChange={(e) => setLastname(e.target.value)}/>          
