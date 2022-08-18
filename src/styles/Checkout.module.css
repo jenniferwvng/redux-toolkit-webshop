@@ -13,7 +13,11 @@
 }
 
 .checkoutForm > input:valid {
-    border: 3px solid lightgreen;
+    border: 3px solid #C1E1C1;
+}
+
+.checkoutForm > input:last-child {
+    border: 3px solid lightgrey;
 }
 
 .checkoutCartGrid {

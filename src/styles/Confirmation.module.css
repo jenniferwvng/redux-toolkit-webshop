@@ -1,0 +1,38 @@
+.orderInformation {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+}
+
+.displayGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 40vh;
+}
+
+.gridChild {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    justify-self: center;
+    background-color: lightgrey;
+    margin: 30px;
+}
+
+.gridChild > span {
+    display: flex;
+    justify-content: center;
+}
+
+.redirectButtonParent {
+    background-color: lightgrey;
+    border: 2px solid lightgrey;
+}
+
+.redirectButton {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 30px;
+}
