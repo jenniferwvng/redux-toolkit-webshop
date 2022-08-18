@@ -23,6 +23,7 @@ function CheckoutPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     dispatch(confirmOrderInformation({
       firstname,
       lastname,
@@ -48,7 +49,8 @@ function CheckoutPage() {
         </span>
     </div>
   ))
-
+  
+  
   return (
     <div>
       <Header />
@@ -64,12 +66,12 @@ function CheckoutPage() {
           
         </span>
         <form onSubmit={handleSubmit} className={styles.checkoutForm}>
-          <input type="firstname" placeholder="First name" value={firstname} onChange={(e) => setFirstname(e.target.value)}/>
-          <input type="lastname" placeholder="Last name" value={lastname} onChange={(e) => setLastname(e.target.value)}/>          
-          <input type="address" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)}/>          
-          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>          
-          <input type="telephone" placeholder="Telephone" value={telephone} onChange={(e) => setTelephone(e.target.value)}/>          
-          <input type="payment" placeholder="Payment" value={payment} onChange={(e) => setPayment(e.target.value)}/>          
+          <input type="firstname" placeholder="First name" value={firstname} required onChange={(e) => setFirstname(e.target.value)}/>
+          <input type="lastname" placeholder="Last name" value={lastname} required onChange={(e) => setLastname(e.target.value)}/>          
+          <input type="address" placeholder="Address" value={address} required onChange={(e) => setAddress(e.target.value)}/>          
+          <input type="email" placeholder="Email" value={email} required onChange={(e) => setEmail(e.target.value)}/>          
+          <input type="telephone" placeholder="Telephone" value={telephone} required minLength={10} onChange={(e) => setTelephone(e.target.value)}/>          
+          <input type="payment" placeholder="Payment" value={payment} required onChange={(e) => setPayment(e.target.value)}/>          
           {/* add form validation to prevent empty or incorrect fields*/}
           <input type="submit" value="Place order" />
         </form>

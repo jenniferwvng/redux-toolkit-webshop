@@ -12,6 +12,10 @@
     height: 32px;
 }
 
+.checkoutForm > input:valid {
+    border: 3px solid lightgreen;
+}
+
 .checkoutCartGrid {
     background-color: white;
     padding: 10px;

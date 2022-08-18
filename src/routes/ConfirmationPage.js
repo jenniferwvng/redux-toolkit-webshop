@@ -29,12 +29,13 @@ function ConfirmationPage () {
   return (
     <div>
       <Header />
-      {renderOrderInfo}
-      <p>ConfirmationPage</p>
-      <Link to="/">
-        Return to start page
-      </Link>
-      <p>You will be automatically redirected after 8 seconds</p>
+      <div style={{textAlign: 'center'}}>
+        {renderOrderInfo}      
+        <Link to="/">
+          Return to start page
+        </Link>
+        <p>You will be automatically redirected after 8 seconds</p>
+      </div>
     </div>
   );
 }
