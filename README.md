@@ -22,5 +22,5 @@ Used React Router for navigation and useNavigate to redirect user to confirmatio
 ### Third party APIs
 Used Fakestore API for product list, all data credited for the author https://fakestoreapi.com/products
 
-### Live demo:
+### Live demo (not completely done yet):
 https://webshop-simulation.netlify.app/

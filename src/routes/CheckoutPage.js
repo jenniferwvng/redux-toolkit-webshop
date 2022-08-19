@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -17,6 +17,24 @@ function CheckoutPage() {
   const [email, setEmail] = useState('');
   const [telephone, setTelephone] = useState('');
   const [payment, setPayment] = useState('');
+
+  // const [validationErrors, setValidationErrors] = useState({
+  //   firstname: '',
+  //   lastname: '',
+  //   address: '',
+  //   email: '',
+  //   telephone: '',
+  //   payment: ''
+  // })
+
+  // useEffect(() => {
+  //   if (typeof firstname !== 'string') {
+  //     setValidationErrors({firstname: 'First name cannot by a number'})
+  //   }
+  // }, [firstname])
+
+  // console.log(typeof firstname)
+
 
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -66,7 +84,8 @@ function CheckoutPage() {
           
         </span>
         <form onSubmit={handleSubmit} className={styles.checkoutForm}>
-          <input type="firstname" placeholder="First name" value={firstname} required onChange={(e) => setFirstname(e.target.value)}/>
+          <input type="firstname" placeholder="First name"  value={firstname} required onChange={(e) => setFirstname(e.target.value)}/>
+          {/* <p>{validationErrors.firstname}</p> */}
           <input type="lastname" placeholder="Last name" value={lastname} required onChange={(e) => setLastname(e.target.value)}/>          
           <input type="address" placeholder="Address" value={address} required onChange={(e) => setAddress(e.target.value)}/>          
           <input type="email" placeholder="Email" value={email} required onChange={(e) => setEmail(e.target.value)}/>          
